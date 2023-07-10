@@ -91,3 +91,12 @@ ul {
     justify-content: center;
     margin-left: 50px;
 }
+
+.delete-button {
+    float: right;
+    border: solid red;
+    background: white;
+    cursor: pointer;
+    color: red;
+  }
+  

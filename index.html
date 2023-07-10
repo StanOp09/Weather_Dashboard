@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-BUN0e5oNYPyNGVOfusB7+4C4yqy/Cvn7SS01bU8yUSlKStudSi0nO3d3VfC54c5hlbTqgO7yavwX3lJb5SZjXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/style/style.css">
+
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="bg-primary bg-gradient text-light mb-5 p-3 text-center">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class="container-fluid col-12">
+        <div class="d-flex">
+            <div class="my-3">
+                <h2>Search for a City:</h2>
+                <input type="text" id="cityInput" placeholder="Enter city name" class="my-3">
+                <br>
+                <button class="my-3" id="searchBtn">Search</button>
+                <hr>
+            </div>
+            <div class="border border-dark" id="weatherContainer"></div>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div>
+            <ul id="searchHistoryList"></ul>
+        </div>
+        <div class="container-fluid col-12 mt-5">
+            <div id="forecastContainer"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
+    <script src="./assets/script/script.js"></script>
+</body>
+</html>

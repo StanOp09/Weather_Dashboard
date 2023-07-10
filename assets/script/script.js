@@ -35,14 +35,14 @@ $(function() {
         var humidity = $('<p>').text('Humidity: ' + data.main.humidity + '%');
         var windSpeed = $('<p>').text('Wind Speed: ' + data.wind.speed + ' m/s');
         var timestamp = $('<p>').text("(" + dayjs().format('YYYY/MM/DD') + ")");
-        timestamp.css('margin-left', 'auto'); // Set margin-left to auto to push timestamp to the right side
+        timestamp.css('margin-left', 'auto'); 
         timestamp.css('font-size', '2rem');
 
         var weatherCode = data.weather[0].icon;
         var weatherIconClass = getWeatherIconClass(weatherCode);
         var weatherIcon = $('<span>').addClass(weatherIconClass).text(getWeatherIcon(weatherCode));
 
-        timestamp.append(weatherIcon); // Prepend weather icon to the timestamp element
+        timestamp.append(weatherIcon); // Append weather icon to the timestamp element
         cityName.append($('<span>').css('float', 'right').append(timestamp)); // Append timestamp to the city name element with a floated right span
 
         weatherContainer.append(cityName, temperature, humidity, windSpeed);
@@ -119,7 +119,6 @@ $(function() {
         updateSearchHistoryList(searchHistory);
     }
 
-    // Updates the search history list on the page
     function updateSearchHistoryList(searchHistory) {
         var historyList = $('#searchHistoryList');
         historyList.empty();
@@ -128,15 +127,22 @@ $(function() {
         searchHistory.forEach(function(city) {
           var listItem = $('<li>').text(city);
           listItem.addClass('border box-size');
-          
+      
           // Create delete button
           var deleteButton = $('<button>')
             .addClass('delete-button')
             .html('<i class="fa fa-trash" aria-hidden="true"></i>');
-          
+      
           // Add click event handler to delete button
-          deleteButton.on('click', function() {
+          deleteButton.on('click', function(event) {
+            event.stopPropagation(); // Prevent event propagation to the list item
             deleteFromSearchHistory(city);
+          });
+      
+          // Add click event handler to list item
+          listItem.on('click', function() {
+            getWeatherData(city);
+            getForecastData(city);
           });
       
           listItem.append(deleteButton);

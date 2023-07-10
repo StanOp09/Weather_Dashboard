@@ -6,7 +6,7 @@ The weather forms a normal part of our daily lifestyle. It helps to make decisio
 
 The github repository can be found at https://github.com/StanOp09/Weather_Dashboard
 
-The live website is hosted at https://stanop09.github.io/Weather_Dashboard
+The live website is hosted at https://stanop09.github.io/Weather_Dashboard/
 
 The following user story and acceptance criteria was addopted from https://git.bootcampcontent.com/University-of-Toronto/UTOR-VIRT-FSF-PT-05-2023-U-LOLC/-/tree/main/06-Server-Side-APIs/02-Challenge
 
@@ -33,7 +33,7 @@ THEN I am again presented with current and future conditions for that city
 ```
 
 ## Appearance and Functionality
-
+![Weather app full page image](image.png)
 
 ## Credits
 Sean Roshan

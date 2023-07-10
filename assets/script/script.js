@@ -1,4 +1,5 @@
 $(function() {
+    // Triggered when the search button is clicked
     $('#searchBtn').on('click', function() {
         var city = $('#cityInput').val();
         getWeatherData(city);
@@ -6,6 +7,7 @@ $(function() {
         getForecastData(city);
     });
 
+    // Fetches weather data for a specific city
     function getWeatherData(city) {
         var apiKey = '2c56ed7b03ee61202f440366652856ea';
         var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey;
@@ -23,6 +25,7 @@ $(function() {
         });
     }
 
+    // Displays weather data on the page
     function displayWeatherData(data) {
         var weatherContainer = $('#weatherContainer');
         weatherContainer.empty();
@@ -45,6 +48,7 @@ $(function() {
         weatherContainer.append(cityName, temperature, humidity, windSpeed);
     }
 
+    // Retrieves the appropriate weather icon class based on the weather code
     function getWeatherIconClass(weatherCode) {
         var weatherIcons = {
             '01d': 'weather-sunny',
@@ -70,6 +74,7 @@ $(function() {
         return weatherIcons[weatherCode] || 'weather-none';
     }
 
+    // Retrieves the appropriate weather icon based on the weather code
     function getWeatherIcon(weatherCode) {
         var weatherIcons = {
             '01d': '☀',
@@ -95,6 +100,7 @@ $(function() {
         return weatherIcons[weatherCode] || '';
     }
 
+    // Adds the searched city to the search history
     function addToSearchHistory(city) {
         var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
@@ -113,25 +119,52 @@ $(function() {
         updateSearchHistoryList(searchHistory);
     }
 
+    // Updates the search history list on the page
     function updateSearchHistoryList(searchHistory) {
         var historyList = $('#searchHistoryList');
         historyList.empty();
-
+      
         // Generate list items for each city in the search history
         searchHistory.forEach(function(city) {
-            var listItem = $('<li>').text(city);
-            listItem.addClass('border box-size');
-            listItem.on('click', function() {
-                getWeatherData(city);
-                getForecastData(city);
-            });
-            listItem.on('mouseover', function() {
-                $(this).css('cursor', 'pointer');
-            });
-            historyList.append(listItem);
+          var listItem = $('<li>').text(city);
+          listItem.addClass('border box-size');
+          
+          // Create delete button
+          var deleteButton = $('<button>')
+            .addClass('delete-button')
+            .html('<i class="fa fa-trash" aria-hidden="true"></i>');
+          
+          // Add click event handler to delete button
+          deleteButton.on('click', function() {
+            deleteFromSearchHistory(city);
+          });
+      
+          listItem.append(deleteButton);
+          historyList.append(listItem);
         });
+      }
+      
+
+    // Deletes a city from the search history
+    function deleteFromSearchHistory(city) {
+        var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    
+        // Find the index of the city in the search history
+        var index = searchHistory.indexOf(city);
+    
+        if (index !== -1) {
+            // Remove the city from the search history
+            searchHistory.splice(index, 1);
+    
+            // Save the updated search history in local storage
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    
+            // Update the search history list
+            updateSearchHistoryList(searchHistory);
+        }
     }
 
+    // Fetches forecast data for a specific city
     function getForecastData(city) {
         var apiKey = '2c56ed7b03ee61202f440366652856ea';
         var apiUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
@@ -149,6 +182,7 @@ $(function() {
         });
     }
 
+    // Displays forecast data on the page
     function displayForecastData(data) {
         var forecastContainer = $('#forecastContainer');
         forecastContainer.empty();

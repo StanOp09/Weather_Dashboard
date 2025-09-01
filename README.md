@@ -38,8 +38,6 @@ THEN I am again presented with current and future conditions for that city
 ## Credits
 Sean Roshan
 
-ChatGPT
-
 https://getbootstrap.com
 
 https://day.js.org/en/

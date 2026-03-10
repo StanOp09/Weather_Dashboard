@@ -36,9 +36,7 @@ THEN I am again presented with current and future conditions for that city
 ![Weather app full page image](image.png)
 
 ## Credits
-Sean Roshan
-
-https://getbootstrap.com
+- [Bootstrap](https://getbootstrap.com)
 
 https://day.js.org/en/
 

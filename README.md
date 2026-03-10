@@ -38,8 +38,8 @@ THEN I am again presented with current and future conditions for that city
 ## Credits
 - [Bootstrap](https://getbootstrap.com)
 
-- [Day.js] (https://day.js.org/en/)
+- [Day.js](https://day.js.org/en/)
 
-- [JQuery] (https://jqueryui.com)
+- [JQuery](https://jqueryui.com)
 
 - [OpenWeather](https://openweathermap.org/forecast5)

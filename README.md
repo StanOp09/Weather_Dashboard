@@ -36,10 +36,10 @@ THEN I am again presented with current and future conditions for that city
 ![Weather app full page image](image.png)
 
 ## Credits
-- [Bootstrap] (https://getbootstrap.com)
+- [Bootstrap](https://getbootstrap.com)
 
-https://day.js.org/en/
+- [Day.js] (https://day.js.org/en/)
 
-https://jqueryui.com
+- [JQuery] (https://jqueryui.com)
 
-https://openweathermap.org/forecast5
+- [OpenWeather](https://openweathermap.org/forecast5)
